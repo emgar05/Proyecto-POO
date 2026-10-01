@@ -23,6 +23,8 @@
 ### Modelado de Datos/DER
 <img width="864" height="1216" alt="image" src="https://github.com/user-attachments/assets/95eaf367-df29-4e6c-b3d2-b302712d685b" />
 
+## Diagrama de capas
+<img width="2057" height="1581" alt="Diagrama en blanco - Página 2" src="https://github.com/user-attachments/assets/5c2bfe73-5fea-40a0-9702-0e6e4dfb1791" />
 
 
 
