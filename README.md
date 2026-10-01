@@ -14,6 +14,15 @@
 #### 1- Inscripción
 <img width="921" height="176" alt="image" src="https://github.com/user-attachments/assets/fae84ac8-6dd6-4885-817f-b3c3d13ff64f" />
 
+#### 2- Pago mensualidad 
+<img width="625" height="495" alt="image" src="https://github.com/user-attachments/assets/4f92ace4-f698-4a21-b448-bdc54df0dab6" />
+
+#### 3- Venta de productos 
+<img width="661" height="449" alt="image" src="https://github.com/user-attachments/assets/e59953c5-37ce-4080-9ea8-cc0fbfa35504" />
+
+
+
+
 
 
 
