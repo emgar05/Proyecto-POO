@@ -1,5 +1,4 @@
 # Proyecto-POO
-# Proyecto Poo
 ## Sistemas Computacionales Adminisrativos
 #### Integrado por:
 - Aguilar Rendon Wendoline
