@@ -19,6 +19,9 @@
 #### 3- Venta de productos 
 <img width="661" height="449" alt="image" src="https://github.com/user-attachments/assets/e59953c5-37ce-4080-9ea8-cc0fbfa35504" />
 
+### Modelado de Datos/DER
+<img width="864" height="1216" alt="image" src="https://github.com/user-attachments/assets/95eaf367-df29-4e6c-b3d2-b302712d685b" />
+
 
 
 
