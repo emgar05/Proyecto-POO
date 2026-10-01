@@ -26,6 +26,12 @@
 ## Diagrama de capas
 <img width="2057" height="1581" alt="Diagrama en blanco - Página 2" src="https://github.com/user-attachments/assets/5c2bfe73-5fea-40a0-9702-0e6e4dfb1791" />
 
+## Descripción de las capas
+<img width="684" height="569" alt="Captura de pantalla (21)" src="https://github.com/user-attachments/assets/a34da72c-3140-4cc4-b7df-a59d56290bfb" />
+
+
+
+
 
 
 
