@@ -29,6 +29,12 @@
 ## Descripción de las capas
 <img width="684" height="569" alt="Captura de pantalla (21)" src="https://github.com/user-attachments/assets/a34da72c-3140-4cc4-b7df-a59d56290bfb" />
 
+## Justificación de las Tecnologias y Herramientas Utilizadas
+
+<img width="1119" height="480" alt="Porque Elegimos!! 2026-10-01 a la(s) 7 57 03" src="https://github.com/user-attachments/assets/eacf1eca-ec9d-4942-8fd4-28b7015784c0" />
+
+
+
 
 
 
