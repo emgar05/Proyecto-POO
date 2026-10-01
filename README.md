@@ -8,7 +8,7 @@
 - Dominguez Cuevas Enrique de Jesus
 
 ---
-#### Arquitectura Propuesta 
+## Arquitectura Propuesta 
 ### Diagramas UML
 
 #### 1- Inscripción
