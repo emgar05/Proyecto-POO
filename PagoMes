@@ -1,0 +1,174 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.border.LineBorder;
+
+public class VentanaPago extends JFrame {
+
+    private JTextField txtNombre;
+    private JTextField txtConcepto;
+    private JTextField txtMonto;
+    private JTextField txtFecha;
+
+    public VentanaPago() {
+        setTitle("Sistema de Pagos - Secretaría");
+        setSize(750, 480);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setBackground(SystemColor.inactiveCaptionBorder);
+        getContentPane().add(panel);
+
+        JSeparator separadorSuperior = new JSeparator();
+        separadorSuperior.setBounds(20, 60, 695, 10);
+        panel.add(separadorSuperior);
+
+        JLabel lblTitulo = new JLabel("PAGO DE MENSUALIDAD");
+        lblTitulo.setFont(new Font("Arial", Font.BOLD, 14));
+        lblTitulo.setBounds(85, 23, 185, 20);
+        panel.add(lblTitulo);
+
+        JLabel lblSecretaria = new JLabel("Secretaria");
+        lblSecretaria.setFont(new Font("Arial", Font.BOLD, 14));
+        lblSecretaria.setBounds(580, 23, 80, 20);
+        panel.add(lblSecretaria);
+
+        JLabel lblUserIcon = new JLabel("O", SwingConstants.CENTER);
+        lblUserIcon.setFont(new Font("Arial", Font.PLAIN, 20));
+        lblUserIcon.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        lblUserIcon.setBounds(670, 15, 40, 35);
+        panel.add(lblUserIcon);
+
+        JLabel lblNombre = new JLabel("Nombre:");
+        lblNombre.setFont(new Font("Arial", Font.PLAIN, 12));
+        lblNombre.setBounds(117, 130, 48, 20);
+        panel.add(lblNombre);
+
+        txtNombre = new JTextField();
+        txtNombre.setBounds(175, 125, 490, 30);
+        panel.add(txtNombre);
+
+        JButton btnBuscar = new JButton("🔍");
+        btnBuscar.setBackground(SystemColor.activeCaption);
+        btnBuscar.setBounds(675, 125, 35, 30);
+        btnBuscar.setToolTipText("Buscar alumno o usuario");
+        btnBuscar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nombreBuscado = JOptionPane.showInputDialog(VentanaPago.this, "Ingrese el nombre a buscar:");
+                if (nombreBuscado != null && !nombreBuscado.trim().isEmpty()) {
+                    txtNombre.setText(nombreBuscado);
+                }
+            }
+        });
+        panel.add(btnBuscar);
+
+        JLabel lblConcepto = new JLabel("Concepto:");
+        lblConcepto.setFont(new Font("Arial", Font.PLAIN, 12));
+        lblConcepto.setBounds(110, 185, 60, 20);
+        panel.add(lblConcepto);
+
+        txtConcepto = new JTextField();
+        txtConcepto.setBounds(175, 180, 535, 30);
+        panel.add(txtConcepto);
+
+        JLabel lblMonto = new JLabel("Monto:");
+        lblMonto.setFont(new Font("Arial", Font.PLAIN, 12));
+        lblMonto.setBounds(130, 240, 40, 20);
+        panel.add(lblMonto);
+
+        txtMonto = new JTextField();
+        txtMonto.setBounds(175, 235, 535, 30);
+        txtMonto.setMargin(new Insets(2, 20, 2, 2));
+        panel.add(txtMonto);
+
+        JLabel lblSimboloPesos = new JLabel("$");
+        lblSimboloPesos.setFont(new Font("Arial", Font.BOLD, 14));
+        lblSimboloPesos.setBounds(185, 235, 20, 30);
+        panel.add(lblSimboloPesos);
+
+        JLabel lblFecha = new JLabel("Fecha:");
+        lblFecha.setFont(new Font("Arial", Font.PLAIN, 12));
+        lblFecha.setBounds(130, 295, 40, 20);
+        panel.add(lblFecha);
+
+        txtFecha = new JTextField();
+        txtFecha.setBounds(175, 290, 150, 30);
+        panel.add(txtFecha);
+
+        JButton btnCalendario = new JButton("📅");
+        btnCalendario.setBackground(SystemColor.activeCaption);
+        btnCalendario.setBounds(335, 290, 45, 30);
+        btnCalendario.setToolTipText("Insertar fecha actual");
+        btnCalendario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LocalDate fechaActual = LocalDate.now();
+                DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                txtFecha.setText(fechaActual.format(formato));
+            }
+        });
+        panel.add(btnCalendario);
+
+        JButton btnRegistrar = new JButton("Registrar");
+        btnRegistrar.setBackground(SystemColor.inactiveCaption);
+        btnRegistrar.setBounds(510, 385, 95, 30);
+        btnRegistrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nombre = txtNombre.getText().trim();
+                String concepto = txtConcepto.getText().trim();
+                String monto = txtMonto.getText().trim();
+                String fecha = txtFecha.getText().trim();
+
+                if (nombre.isEmpty() || concepto.isEmpty() || monto.isEmpty() || fecha.isEmpty()) {
+                    JOptionPane.showMessageDialog(VentanaPago.this, 
+                            "Por favor, complete todos los campos.", 
+                            "Campos incompletos", 
+                            JOptionPane.WARNING_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(VentanaPago.this, 
+                            "¡Pago registrado con éxito!\n\n" +
+                            "Nombre: " + nombre + "\n" +
+                            "Concepto: " + concepto + "\n" +
+                            "Monto: $" + monto + "\n" +
+                            "Fecha: " + fecha, 
+                            "Registro Exitoso", 
+                            JOptionPane.INFORMATION_MESSAGE);
+                    limpiarCampos();
+                }
+            }
+        });
+        panel.add(btnRegistrar);
+
+        JButton btnCancelar = new JButton("Cancelar");
+        btnCancelar.setBackground(SystemColor.inactiveCaption);
+        btnCancelar.setBounds(615, 385, 95, 30);
+        btnCancelar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                limpiarCampos();
+            }
+        });
+        panel.add(btnCancelar);
+    }
+
+    private void limpiarCampos() {
+        txtNombre.setText("");
+        txtConcepto.setText("");
+        txtMonto.setText("");
+        txtFecha.setText("");
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new VentanaPago().setVisible(true);
+        });
+    }
+}
