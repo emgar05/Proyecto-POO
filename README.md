@@ -38,6 +38,10 @@
 ## 1: inicio de sesión 
 <img width="885" height="508" alt="Captura de pantalla 2026-10-07 220826" src="https://github.com/user-attachments/assets/d69d8084-0309-4f53-a3fa-162ec770be9b" />
 
+## 3: Registro Alumno
+<img width="1006" height="587" alt="WhatsApp Image 2026-10-07 at 10 25 34 PM" src="https://github.com/user-attachments/assets/45142f83-9f9d-45c9-8818-41cf162bf8b2" />
+
+
 
 
 
