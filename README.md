@@ -41,6 +41,9 @@
 ## 3: Registro Alumno
 <img width="1006" height="587" alt="WhatsApp Image 2026-10-07 at 10 25 34 PM" src="https://github.com/user-attachments/assets/45142f83-9f9d-45c9-8818-41cf162bf8b2" />
 
+## 4:Pago de mensualidad
+<img width="728" height="462" alt="WhatsApp Image 2026-10-07 at 11 07 10 PM" src="https://github.com/user-attachments/assets/82ec5be1-6bd7-4668-807c-cd4dba513b3e" />
+
 
 
 
