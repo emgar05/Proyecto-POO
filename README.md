@@ -7,6 +7,8 @@
 - Mejia Garcia Ian Dario
 - Dominguez Cuevas Enrique de Jesus
 
+
+
 ---
 ## Arquitectura Propuesta 
 ### Diagramas UML
@@ -47,6 +49,7 @@
 ## 4:Pago de mensualidad
 <img width="728" height="462" alt="WhatsApp Image 2026-10-07 at 11 07 10 PM" src="https://github.com/user-attachments/assets/82ec5be1-6bd7-4668-807c-cd4dba513b3e" />
 
+## 5:Interfaz 5
 
 
 
