@@ -36,7 +36,7 @@
 ## INTERFACES 
 
 ## 1: inicio de sesión 
-<img width="635" height="623" alt="Captura de pantalla 2026-10-07 213900" src="https://github.com/user-attachments/assets/7aec10c6-907b-49d8-b88e-975d83d361e4" />
+<img width="885" height="508" alt="Captura de pantalla 2026-10-07 220826" src="https://github.com/user-attachments/assets/d69d8084-0309-4f53-a3fa-162ec770be9b" />
 
 
 
