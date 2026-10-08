@@ -33,6 +33,13 @@
 
 <img width="1119" height="480" alt="Porque Elegimos!! 2026-10-01 a la(s) 7 57 03" src="https://github.com/user-attachments/assets/eacf1eca-ec9d-4942-8fd4-28b7015784c0" />
 
+## INTERFACES 
+
+## 1: inicio de sesión 
+<img width="635" height="623" alt="Captura de pantalla 2026-10-07 213900" src="https://github.com/user-attachments/assets/7aec10c6-907b-49d8-b88e-975d83d361e4" />
+
+
+
 
 
 
