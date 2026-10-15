@@ -49,7 +49,9 @@
 ## 4:Pago de mensualidad
 <img width="728" height="462" alt="WhatsApp Image 2026-10-07 at 11 07 10 PM" src="https://github.com/user-attachments/assets/82ec5be1-6bd7-4668-807c-cd4dba513b3e" />
 
-## 5:Interfaz 5
+## 5:Registro de Ventas
+<img width="489" height="371" alt="Captura de Pantalla 2026-10-08 a la(s) 8 58 05" src="https://github.com/user-attachments/assets/d4d5ba2d-64df-480b-bb2b-e82b0c8b60da" />
+
 
 
 
