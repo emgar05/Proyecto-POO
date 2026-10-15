@@ -1,0 +1,322 @@
+package Vista;
+
+import java.awt.EventQueue;
+import java.awt.Image;
+import java.awt.Font;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JSeparator;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
+public class RegistroVentas extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+
+    private JPanel contentPane;
+    private JTextField textField;
+    private JTextField textField_1;
+    private JTextField textField_2;
+
+    private JComboBox<String> comboBox;
+    private JButton btnAceptar;
+    private JButton btnCancelar;
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    RegistroVentas frame = new RegistroVentas();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public RegistroVentas() {
+
+        setTitle("Registro de Ventas");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 450, 300);
+        setResizable(false);
+
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+
+        // --- Primera Foto ---
+        JLabel lblNewLabel_6 = new JLabel("");
+
+        ImageIcon icono = new ImageIcon(
+            RegistroVentas.class.getResource(
+                "/Vista/PHOTO-2026-10-08-08-14-23.jpg"
+            )
+        );
+
+        Image imagen = icono.getImage();
+        Image imagenRedimensionada = imagen.getScaledInstance(
+            40, 40, Image.SCALE_SMOOTH
+        );
+
+        lblNewLabel_6.setIcon(new ImageIcon(imagenRedimensionada));
+        lblNewLabel_6.setBounds(6, 6, 45, 45);
+        contentPane.add(lblNewLabel_6);
+
+        // --- El Tituloooo ---
+        JLabel lblNewLabel = new JLabel("Registro de Ventas");
+        lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
+        lblNewLabel.setBounds(60, 15, 150, 16);
+        contentPane.add(lblNewLabel);
+
+        // --- La secretariaa ---
+        JLabel lblNewLabel_1 = new JLabel("Secretaria");
+        lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
+        lblNewLabel_1.setBounds(310, 15, 86, 16);
+        contentPane.add(lblNewLabel_1);
+
+        // --- Segunda Foto ---
+        JLabel lblNewLabel_7 = new JLabel("");
+
+        ImageIcon icono2 = new ImageIcon(
+            RegistroVentas.class.getResource("/Vista/IMG_1594.jpg")
+        );
+
+        Image imagen2 = icono2.getImage();
+        Image imagenRedimensionada2 = imagen2.getScaledInstance(
+            35, 35, Image.SCALE_SMOOTH
+        );
+
+        lblNewLabel_7.setIcon(new ImageIcon(imagenRedimensionada2));
+        lblNewLabel_7.setBounds(398, 6, 35, 35);
+        contentPane.add(lblNewLabel_7);
+
+        // --- Separador ---
+        JSeparator separator = new JSeparator();
+        separator.setBounds(6, 50, 426, 10);
+        contentPane.add(separator);
+
+        // --- Productos ---
+        JLabel lblNewLabel_2 = new JLabel("Producto:");
+        lblNewLabel_2.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
+        lblNewLabel_2.setBounds(75, 75, 61, 16);
+        contentPane.add(lblNewLabel_2);
+
+        comboBox = new JComboBox<String>();
+        comboBox.setModel(new DefaultComboBoxModel<String>(
+            new String[] {
+                "Botella de Agua",
+                "Gatorade",
+                "Jugo"
+            }
+        ));
+        comboBox.setBounds(141, 70, 248, 27);
+        contentPane.add(comboBox);
+
+        // --- Cantidad ---
+        JLabel lblNewLabel_3 = new JLabel("Cantidad:");
+        lblNewLabel_3.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
+        lblNewLabel_3.setBounds(245, 115, 61, 16);
+        contentPane.add(lblNewLabel_3);
+
+        textField = new JTextField();
+        textField.setBounds(310, 110, 79, 26);
+        contentPane.add(textField);
+        textField.setColumns(10);
+
+        // --- Monto ---
+        JLabel lblNewLabel_4 = new JLabel("Monto:");
+        lblNewLabel_4.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
+        lblNewLabel_4.setBounds(75, 160, 61, 16);
+        contentPane.add(lblNewLabel_4);
+
+        textField_1 = new JTextField();
+        textField_1.setBounds(120, 155, 269, 26);
+        contentPane.add(textField_1);
+        textField_1.setColumns(10);
+
+        // --- Total ---
+        JLabel lblNewLabel_5 = new JLabel("Total:");
+        lblNewLabel_5.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
+        lblNewLabel_5.setBounds(245, 195, 61, 16);
+        contentPane.add(lblNewLabel_5);
+
+        textField_2 = new JTextField();
+        textField_2.setBounds(285, 190, 104, 26);
+        textField_2.setEditable(false);
+        contentPane.add(textField_2);
+        textField_2.setColumns(10);
+
+        // --- Boton Aceptar ---
+        btnAceptar = new JButton("Aceptar");
+        btnAceptar.setBounds(210, 230, 92, 29);
+        contentPane.add(btnAceptar);
+
+        // --- Boton Cancelar ---
+        btnCancelar = new JButton("Cancelar");
+        btnCancelar.setBounds(310, 230, 89, 29);
+        contentPane.add(btnCancelar);
+
+        // --- Precio Inicial ---
+        actualizarMonto();
+
+        // Cambiar precio al seleccionar otro producto
+        comboBox.addActionListener(e -> {
+            actualizarMonto();
+            calcularTotal();
+        });
+
+        // --- Cuentass ---
+        DocumentListener calculo = new DocumentListener() {
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                calcularTotal();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                calcularTotal();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                calcularTotal();
+            }
+        };
+
+        textField.getDocument().addDocumentListener(calculo);
+        textField_1.getDocument().addDocumentListener(calculo);
+
+        // --- ACCION DEL BOTON ACEPTAR ---
+        btnAceptar.addActionListener(e -> {
+
+            try {
+                int cantidad = Integer.parseInt(
+                    textField.getText().trim()
+                );
+
+                double monto = Double.parseDouble(
+                    textField_1.getText()
+                        .replace("$", "")
+                        .trim()
+                        .replace(",", ".")
+                );
+
+                if (cantidad <= 0 || monto < 0
+                        || !Double.isFinite(monto)) {
+
+                    JOptionPane.showMessageDialog(
+                        this,
+                        "La cantidad debe ser mayor que cero "
+                        + "y el monto no puede ser negativo.",
+                        "Datos incorrectos",
+                        JOptionPane.WARNING_MESSAGE
+                    );
+                    return;
+                }
+
+                double total = cantidad * monto;
+
+                textField_2.setText(String.format("%.2f", total));
+
+                JOptionPane.showMessageDialog(
+                    this,
+                    "Venta registrada correctamente.\n\n"
+                    + "Producto: " + comboBox.getSelectedItem()
+                    + "\nCantidad: " + cantidad
+                    + "\nMonto unitario: $"
+                    + String.format("%.2f", monto)
+                    + "\nTotal: $" + String.format("%.2f", total),
+                    "Registro de venta",
+                    JOptionPane.INFORMATION_MESSAGE
+                );
+
+            } catch (NumberFormatException ex) {
+
+                JOptionPane.showMessageDialog(
+                    this,
+                    "Ingresa una cantidad entera y un monto válido.",
+                    "Datos incorrectos",
+                    JOptionPane.WARNING_MESSAGE
+                );
+            }
+        });
+
+        // --- Accion Cancelar ---
+        btnCancelar.addActionListener(e -> {
+
+            textField.setText("");
+            textField_2.setText("");
+            comboBox.setSelectedIndex(0);
+            actualizarMonto();
+        });
+    }
+
+    // --- Actualizar Precio ---
+    private void actualizarMonto() {
+
+        String producto = (String) comboBox.getSelectedItem();
+
+        if (producto == null) {
+            return;
+        }
+
+        switch (producto) {
+
+            case "Botella de Agua":
+                textField_1.setText("$15.00");
+                break;
+
+            case "Gatorade":
+                textField_1.setText("$25.00");
+                break;
+
+            case "Jugo":
+                textField_1.setText("$18.00");
+                break;
+        }
+    }
+
+    // --- Automatico ---
+    private void calcularTotal() {
+
+        try {
+            int cantidad = Integer.parseInt(
+                textField.getText().trim()
+            );
+
+            double monto = Double.parseDouble(
+                textField_1.getText()
+                    .replace("$", "")
+                    .trim()
+                    .replace(",", ".")
+            );
+
+            if (cantidad >= 0 && monto >= 0
+                    && Double.isFinite(monto)) {
+
+                textField_2.setText(
+                    String.format("%.2f", cantidad * monto)
+                );
+
+            } else {
+                textField_2.setText("");
+            }
+
+        } catch (NumberFormatException e) {
+            textField_2.setText("");
+        }
+    }
+}
+
