@@ -1,0 +1,208 @@
+package Ventana1;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Image;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.Timer;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+
+public class Login extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+
+	private JPanel contentPane;
+	private JPanel panelEncabezado;
+	private JPanel panelPrincipal;
+	private JLabel lblTitulo;
+	private JLabel lblHora;
+	private JLabel lblFecha;
+	private JLabel lblUsuario;
+	private JLabel lblContrasena;
+	private JLabel lblLogo;
+	private JTextField txtUsuario;
+	private JPasswordField txtContrasena;
+	private JButton btnIniciarSesion;
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Login frame = new Login();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public Login() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 900, 520);
+		setLocationRelativeTo(null);
+
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
+		contentPane.setLayout(null);
+		setContentPane(contentPane);
+
+		panelEncabezado = new JPanel();
+		panelEncabezado.setBackground(Color.WHITE);
+		panelEncabezado.setBorder(new LineBorder(Color.BLACK, 2, true));
+		panelEncabezado.setBounds(10, 10, 864, 70);
+		panelEncabezado.setLayout(null);
+		contentPane.add(panelEncabezado);
+
+		lblTitulo = new JLabel("de tae kwon do marcial de méxico a.c.");
+		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblTitulo.setBounds(20, 20, 400, 30);
+		panelEncabezado.add(lblTitulo);
+
+		lblHora = new JLabel("12:17 a. m.");
+		lblHora.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblHora.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblHora.setBounds(700, 12, 150, 22);
+		panelEncabezado.add(lblHora);
+
+		lblFecha = new JLabel("11/09/2025");
+		lblFecha.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblFecha.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblFecha.setBounds(700, 34, 150, 22);
+		panelEncabezado.add(lblFecha);
+
+		panelPrincipal = new JPanel();
+		panelPrincipal.setBackground(Color.WHITE);
+		panelPrincipal.setBorder(new LineBorder(Color.BLACK, 2, true));
+		panelPrincipal.setBounds(10, 80, 864, 390);
+		panelPrincipal.setLayout(null);
+		contentPane.add(panelPrincipal);
+
+		lblUsuario = new JLabel("Usuario:");
+		lblUsuario.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblUsuario.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblUsuario.setBounds(150, 100, 130, 30);
+		panelPrincipal.add(lblUsuario);
+
+		txtUsuario = new JTextField();
+		txtUsuario.setBorder(new LineBorder(Color.BLACK, 1, true));
+		txtUsuario.setBounds(295, 95, 360, 36);
+		panelPrincipal.add(txtUsuario);
+
+		lblContrasena = new JLabel("Contraseña:");
+		lblContrasena.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblContrasena.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblContrasena.setBounds(150, 160, 130, 30);
+		panelPrincipal.add(lblContrasena);
+
+		txtContrasena = new JPasswordField();
+		txtContrasena.setBorder(new LineBorder(Color.BLACK, 1, true));
+		txtContrasena.setBounds(295, 155, 360, 36);
+		panelPrincipal.add(txtContrasena);
+
+		btnIniciarSesion = new JButton("Iniciar sesión");
+		btnIniciarSesion.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnIniciarSesion.setBackground(Color.WHITE);
+		btnIniciarSesion.setFocusPainted(false);
+		btnIniciarSesion.setBorder(new LineBorder(Color.BLACK, 2, true));
+		btnIniciarSesion.setBounds(530, 215, 125, 38);
+		btnIniciarSesion.addActionListener(e -> iniciarSesion());
+		panelPrincipal.add(btnIniciarSesion);
+
+		lblLogo = new JLabel("[logo]");
+		lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogo.setBounds(690, 250, 140, 120);
+		cargarLogo("/Ventana1/img/logo.png");
+		panelPrincipal.add(lblLogo);
+
+		getRootPane().setDefaultButton(btnIniciarSesion);
+
+		iniciarReloj();
+	}
+
+	private void cargarLogo(String ruta) {
+		URL url = getClass().getResource(ruta);
+		if (url != null) {
+			ImageIcon icono = new ImageIcon(url);
+			Image img = icono.getImage().getScaledInstance(140, 120, Image.SCALE_SMOOTH);
+			lblLogo.setText("");
+			lblLogo.setIcon(new ImageIcon(img));
+		}
+	}
+
+	private void iniciarReloj() {
+		final SimpleDateFormat fmtHora = new SimpleDateFormat("hh:mm a", new Locale("es", "MX"));
+		final SimpleDateFormat fmtFecha = new SimpleDateFormat("dd/MM/yyyy");
+		Timer timer = new Timer(1000, e -> {
+			Date ahora = new Date();
+			lblHora.setText(fmtHora.format(ahora));
+			lblFecha.setText(fmtFecha.format(ahora));
+		});
+		timer.setInitialDelay(0);
+		timer.start();
+	}
+
+	private void iniciarSesion() {
+		String usuario = txtUsuario.getText().trim();
+		String contrasena = new String(txtContrasena.getPassword());
+
+		if (usuario.isEmpty() || contrasena.isEmpty()) {
+			JOptionPane.showMessageDialog(this, "Escribe tu usuario y contraseña.",
+					"Campos vacíos", JOptionPane.WARNING_MESSAGE);
+			return;
+		}
+
+		String sql = "SELECT id_secretaria, nombre FROM Secretaria "
+				+ "WHERE usuario = ? AND contrasena = SHA2(?, 256)";
+
+		try (Connection con = ConexionBD.getConexion();
+				PreparedStatement ps = con.prepareStatement(sql)) {
+
+			ps.setString(1, usuario);
+			ps.setString(2, contrasena);
+
+			try (ResultSet rs = ps.executeQuery()) {
+				if (rs.next()) {
+					Sesion.idSecretaria = rs.getInt("id_secretaria");
+					Sesion.nombreSecretaria = rs.getString("nombre");
+
+					JOptionPane.showMessageDialog(this,
+							"Bienvenida, " + Sesion.nombreSecretaria,
+							"Inicio de sesión exitoso", JOptionPane.INFORMATION_MESSAGE);
+
+				} else {
+					JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.",
+							"Error", JOptionPane.ERROR_MESSAGE);
+					txtContrasena.setText("");
+					txtContrasena.requestFocus();
+				}
+			}
+
+		} catch (SQLException ex) {
+			JOptionPane.showMessageDialog(this,
+					"No se pudo conectar a la base de datos:\n" + ex.getMessage(),
+					"Error de conexión", JOptionPane.ERROR_MESSAGE);
+			ex.printStackTrace();
+		}
+	}
+}
