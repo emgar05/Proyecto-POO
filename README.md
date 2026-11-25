@@ -35,14 +35,24 @@
 
 <img width="1119" height="480" alt="Porque Elegimos!! 2026-10-01 a la(s) 7 57 03" src="https://github.com/user-attachments/assets/eacf1eca-ec9d-4942-8fd4-28b7015784c0" />
 
-##CLASES IMPLEMENTADAS
+## CLASES IMPLEMENTADAS
+# Login.java:
+La interfaz del login, donde se pide el usuario y contraseña de la secretaria
 
-###Login.java
+# MenuPrincipal.java:
+Donde la secretaria elige que hacer, si registrar un alumno nuevo, registrar el pago de la mensualidad, consultar los pagos o realizar una venta
 
+# RegistrarAlumno.java:
+Donde se registran las inscripciones de nuevos alumnos
 
+# Ventana Pagos.java:
+Aquí se registran los pagos de las mensualidades y donde se pueden consultar los pagos de las mensualidades
 
+# Conexion.java:
+Donde se conecta la base MYSQL con el sistema
 
-
+# Escalador.java:
+Para que las ventanas se ajusten al maximinzar o minimizar 
 
 ## INTERFACES 
 
