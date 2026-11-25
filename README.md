@@ -35,6 +35,15 @@
 
 <img width="1119" height="480" alt="Porque Elegimos!! 2026-10-01 a la(s) 7 57 03" src="https://github.com/user-attachments/assets/eacf1eca-ec9d-4942-8fd4-28b7015784c0" />
 
+##CLASES IMPLEMENTADAS
+
+###Login.java
+
+
+
+
+
+
 ## INTERFACES 
 
 ## 1: inicio de sesión 
